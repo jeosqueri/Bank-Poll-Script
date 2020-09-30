@@ -12,19 +12,13 @@ profit_loss = []
 #Define functions
 #Calcuate average of changes in Profit/Loss- AVERAGE FORMULA RIGHT, 
 # but needs to be calculating the average of the net profit/loss, so need to calculate that first
-def average(profit_loss):
-    length = len(profit_loss)
+def average(diff):
+    length = len(diff)
     total = 0
-    for number in profit_loss:
+    for number in diff:
         total += number
     return total / length
 
-    #Count total number of months
-    
-
-    #Calculate net total amount of Profit/Loss
-    
-    #Calcuate average of changes in Profit/Loss
 
 #Open CSV file
 with open(csvpath, mode = 'r') as csvfile:
@@ -45,13 +39,21 @@ with open(csvpath, mode = 'r') as csvfile:
         #Now get average of diff  
 
     
-#months.count(row[0])
+print("Financial Analysis")
+print("------------------------")
 
-#print(months.count)
+#Print amount of total months
+print("Total Months:  " + str(len(months)))
 
-#print("Average is" + str(average(profit_loss)))
+#Print net total amount of profit loss
+total = sum(profit_loss)
 
-#print(f"Total months: {total_months}")
-#print(f"Total Profit: {total_profit}")
-#print(f"Average change: {av_change}")
-#print(f"Maximum:{max(total_profit)}")
+print("Total:  " + str(total))
+
+#Print average change (need to round)
+print("Average Change:   " + str(average(diff)))
+
+#Print Greatest Increase in Profits (Need the month and formatting)
+print("Greatest Increase in Profits:  " + str(max(diff)))
+#Print Greatest Decrease in Profits (Need the month and formatting)
+print("Greatest Decrease in Profits:  " + str(min(diff)))
