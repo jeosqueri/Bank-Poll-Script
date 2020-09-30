@@ -48,7 +48,7 @@ print("Total Months:  " + str(len(months)))
 #Print net total amount of profit loss
 total = sum(profit_loss)
 
-print("Total:  " + str(total))
+print("Total:  " + "$" + str(total))
 
 #Print average change (need to round)
 print("Average Change:   " + str(average(diff)))
