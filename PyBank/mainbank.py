@@ -7,11 +7,10 @@ import csv
 csvpath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyBank','Resources','budget_data_main.csv')
 
 months = []
+#Current profit list
 profit_loss = []
 
-#Define functions
-#Calcuate average of changes in Profit/Loss- AVERAGE FORMULA RIGHT, 
-# but needs to be calculating the average of the net profit/loss, so need to calculate that first
+#Define average function to call to calculate the average changes in profit/loss over entire period
 def average(diff):
     length = len(diff)
     total = 0
@@ -30,30 +29,37 @@ with open(csvpath, mode = 'r') as csvfile:
         #Add months to list
         months.append(row[0])
 
-        #Add profit/loss to list
+        #Add current profit/loss to list
         profit_loss.append(int(row[1]))
     
         #Generate successive differences for profit list
         diff = [profit_loss[i + 1]- profit_loss[i] for i in range(len(profit_loss)-1)]
         
-        #Now get average of diff  
 
-    
+
+#month by month results
+total_months = len(months)
+total_profit_change = sum(profit_loss)
+average_change = round(average(diff), 2)
+max_change = max(diff)
+max_month = months[diff.index(max_change) + 1]
+min_change = min(diff)
+min_mounth = months[diff.index(min_change) + 1]
+
 print("Financial Analysis")
 print("------------------------")
 
 #Print amount of total months
-print("Total Months:  " + str(len(months)))
+print(f"Total Months:  {total_months}")
 
 #Print net total amount of profit loss
-total = sum(profit_loss)
+print(f"Total: ${total_profit_change}")
 
-print("Total:  " + "$" + str(total))
-
-#Print average change (need to round)
-print("Average Change:   " + str(average(diff)))
+#Print average change
+print(f"Average Change: ${average_change}")
 
 #Print Greatest Increase in Profits (Need the month and formatting)
-print("Greatest Increase in Profits:  " + str(max(diff)))
+print(f"Greatest Increase in Profits: {max_month} (${max_change})" )
+
 #Print Greatest Decrease in Profits (Need the month and formatting)
-print("Greatest Decrease in Profits:  " + str(min(diff)))
+print(f"Greatest Decrease in Profits: {min_mounth} (${min_change})")
