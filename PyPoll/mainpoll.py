@@ -5,9 +5,10 @@ import csv
 #Set path for CSV file
 #Currently not working when I don't set the directory like this... fix this
 csvpath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyPoll','Resources','election_data.csv')
+filepath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyPoll','ElectionText.txt')
 
 candidate_dic = {}
-total_votes = []
+total_votes = 0
 candidates = []
 
 
@@ -25,7 +26,7 @@ with open(csvpath, mode = 'r') as csvfile:
     next(csvreader)
     for row in csvreader:
         
-        total_votes.append(row[0])
+        total_votes += 1
         
         candidate = (row[2])
 
@@ -35,15 +36,29 @@ with open(csvpath, mode = 'r') as csvfile:
             candidate_dic[candidate]=1
 
 
-print(candidate_dic)
+with open(filepath, mode='w') as txtfile:
+    print("Election Results")
+    txtfile.write("Election Results\n")
+    print("-------------")
+    txtfile.write("---------------\n")
+    total_votes = (f"Total Votes:  {total_votes}\n")
+    print(total_votes)
+    txtfile.write(total_votes)
+    for candidate in candidate_dic:
+        value = candidate_dic[candidate]
+        percent = vote_percentage(candidate_dic, candidate)
+        result = (f"{candidate}: {percent}% ({value})\n")
+        print(result)
+        txtfile.write(result)
 
-print("Total Votes: " + str(len(total_votes)))
+    for key,value in candidate_dic.items():
+        if value == max(candidate_dic.values()):
+            winner = (f"Winner: {key}")
+            print(winner)
+            txtfile.write(winner)
 
-#print("Khan: " + str(candidate_dic["Khan"]) + " " + str(vote_percentage(candidate_dic, "Khan")))
-print("Khan: " + str(vote_percentage(candidate_dic, "Khan")) + "%" + " " + "(" + str(candidate_dic["Khan"]) + ")")
-print("Correy: " + str(vote_percentage(candidate_dic, "Correy")) + "%" + " " + "(" + str(candidate_dic["Correy"]) + ")")
-print("Li: " + str(vote_percentage(candidate_dic, "Li")) + "%" + " " + "(" + str(candidate_dic["Li"]) + ")")
-print("O'Tooley: " + str(vote_percentage(candidate_dic, "O'Tooley")) + "%" + " " + "(" + str(candidate_dic["O'Tooley"]) + ")")
+
+
 
 
 
