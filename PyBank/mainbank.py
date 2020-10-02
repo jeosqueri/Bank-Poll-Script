@@ -3,8 +3,8 @@ import os
 import csv
 
 #Set path for CSV file
-#Currently not working when I don't set the directory like this... fix this
 csvpath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyBank','Resources','budget_data_main.csv')
+txtpath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyBank','BankText.txt')
 
 months = []
 #Current profit list
@@ -46,20 +46,23 @@ max_month = months[diff.index(max_change) + 1]
 min_change = min(diff)
 min_mounth = months[diff.index(min_change) + 1]
 
-print("Financial Analysis")
-print("------------------------")
-
-#Print amount of total months
-print(f"Total Months:  {total_months}")
-
-#Print net total amount of profit loss
-print(f"Total: ${total_profit_change}")
-
-#Print average change
-print(f"Average Change: ${average_change}")
-
-#Print Greatest Increase in Profits (Need the month and formatting)
-print(f"Greatest Increase in Profits: {max_month} (${max_change})" )
-
-#Print Greatest Decrease in Profits (Need the month and formatting)
-print(f"Greatest Decrease in Profits: {min_mounth} (${min_change})")
+with open(txtpath, mode ='w') as txtfile:
+    print("Financial Analysis")
+    txtfile.write("Financial Analysis\n")
+    print("------------------------")
+    txtfile.write("------------------------\n")
+    #Print amount of total months
+    print(f"Total Months:  {total_months}")
+    txtfile.write(f"Total Months:  {total_months}\n")
+    #Print net total amount of profit loss
+    print(f"Total: ${total_profit_change}")
+    txtfile.write(f"Total: ${total_profit_change}\n")
+    #Print average change
+    print(f"Average Change: ${average_change}")
+    txtfile.write(f"Average Change: ${average_change}\n")
+    #Print Greatest Increase in Profits (Need the month and formatting)
+    print(f"Greatest Increase in Profits: {max_month} (${max_change})" )
+    txtfile.write(f"Greatest Increase in Profits: {max_month} (${max_change})\n")
+    #Print Greatest Decrease in Profits (Need the month and formatting)
+    print(f"Greatest Decrease in Profits: {min_mounth} (${min_change})")
+    txtfile.write(f"Greatest Decrease in Profits: {min_mounth} (${min_change})\n")
