@@ -4,10 +4,12 @@ import csv
 
 #Set path for CSV file
 csvpath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyBank','Resources','budget_data_main.csv')
+#Set path for generating text file
 txtpath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyBank','BankText.txt')
 
+#Create empty months list
 months = []
-#Current profit list
+#Create empty current profit list
 profit_loss = []
 
 #Define average function to call to calculate the average changes in profit/loss over entire period
@@ -36,16 +38,21 @@ with open(csvpath, mode = 'r') as csvfile:
         diff = [profit_loss[i + 1]- profit_loss[i] for i in range(len(profit_loss)-1)]
         
 
-
-#month by month results
+#Create variables for results
+#Calculate total months
 total_months = len(months)
+#Calculate total profit change
 total_profit_change = sum(profit_loss)
+#Calculate average of the changes in profit/loss (diff)
 average_change = round(average(diff), 2)
+#Get max change number and month it occured
 max_change = max(diff)
 max_month = months[diff.index(max_change) + 1]
+#Get min change number and month it occured
 min_change = min(diff)
 min_mounth = months[diff.index(min_change) + 1]
 
+#Create text file and print results to terminal as well as text file
 with open(txtpath, mode ='w') as txtfile:
     print("Financial Analysis")
     txtfile.write("Financial Analysis\n")
@@ -60,9 +67,9 @@ with open(txtpath, mode ='w') as txtfile:
     #Print average change
     print(f"Average Change: ${average_change}")
     txtfile.write(f"Average Change: ${average_change}\n")
-    #Print Greatest Increase in Profits (Need the month and formatting)
+    #Print Greatest Increase in Profits
     print(f"Greatest Increase in Profits: {max_month} (${max_change})" )
     txtfile.write(f"Greatest Increase in Profits: {max_month} (${max_change})\n")
-    #Print Greatest Decrease in Profits (Need the month and formatting)
+    #Print Greatest Decrease in Profits
     print(f"Greatest Decrease in Profits: {min_mounth} (${min_change})")
     txtfile.write(f"Greatest Decrease in Profits: {min_mounth} (${min_change})\n")
