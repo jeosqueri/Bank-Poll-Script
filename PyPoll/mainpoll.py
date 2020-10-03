@@ -5,7 +5,7 @@ import csv
 #Set path for CSV file
 csvpath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyPoll','Resources','election_data.csv')
 #Set path for creating text file
-filepath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyPoll','ElectionText.txt')
+filepath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyPoll','Analysis','ElectionText.txt')
 
 #Create empty dictionary to hold candidate names as keys and votes as values
 candidate_dic = {}
