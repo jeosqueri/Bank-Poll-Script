@@ -5,7 +5,7 @@ import csv
 #Set path for CSV file
 csvpath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyBank','Resources','budget_data_main.csv')
 #Set path for generating text file
-txtpath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyBank','BankText.txt')
+txtpath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyBank','Analysis','BankText.txt')
 
 #Create empty months list
 months = []
