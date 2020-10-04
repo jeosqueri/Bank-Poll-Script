@@ -7,11 +7,10 @@ csvpath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyPo
 #Set path for creating text file
 filepath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyPoll','Analysis','ElectionText.txt')
 
-#Create empty dictionary to hold candidate names as keys and votes as values
+#Create empty dictionary to hold candidate names as keys, and their votes recieved as values
 candidate_dic = {}
 #Define total votes variable and set to 0
 total_votes = 0
-candidates = []
 
 #Define vote percentage as a function to call to calculate what % of the vote each candidate won
 def vote_percentage(dictionary, s):
@@ -49,6 +48,8 @@ with open(filepath, mode='w') as txtfile:
     total_votes = (f"Total Votes:  {total_votes}\n")
     print(total_votes)
     txtfile.write(total_votes)
+    print("-------------")
+    txtfile.write("---------------\n")
     #Add new for loop to go through candidate dic and return the candidate name, the number of votes they recieved, and the % of votes 
     for candidate in candidate_dic:
         value = candidate_dic[candidate]
@@ -56,6 +57,8 @@ with open(filepath, mode='w') as txtfile:
         result = (f"{candidate}: {percent}% ({value})\n")
         print(result)
         txtfile.write(result)
+    print("-------------")
+    txtfile.write("---------------\n")
     #Find max value of votes in dictionary and return the corresponding key to get the winners name
     for key,value in candidate_dic.items():
         if value == max(candidate_dic.values()):
