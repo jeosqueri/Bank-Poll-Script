@@ -52,7 +52,7 @@ max_month = months[diff.index(max_change) + 1]
 min_change = min(diff)
 min_mounth = months[diff.index(min_change) + 1]
 
-#Create text file and print results to terminal as well as text file
+#Create text file and print results to terminal as well as text file with correct formatting
 with open(txtpath, mode ='w') as txtfile:
     print("Financial Analysis")
     txtfile.write("Financial Analysis\n")
