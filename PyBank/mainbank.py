@@ -1,4 +1,4 @@
-#First set modules
+#Set modules
 import os
 import csv
 
@@ -7,9 +7,9 @@ csvpath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyBa
 #Set path for generating text file
 txtpath = os.path.join('/Users','juliasqueri','Desktop','python_challenge','PyBank','Analysis','BankText.txt')
 
-#Create empty months list
+#Create empty list to hold months
 months = []
-#Create empty current profit list
+#Create empty list to hold the profit/loss values list
 profit_loss = []
 
 #Define average function to call to calculate the average changes in profit/loss over entire period
@@ -34,21 +34,21 @@ with open(csvpath, mode = 'r') as csvfile:
         #Add current profit/loss to list
         profit_loss.append(int(row[1]))
     
-        #Generate successive differences for profit list
+        #Generate successive differences for profit/loss list to calculate the differences/changes for the whole period
         diff = [profit_loss[i + 1]- profit_loss[i] for i in range(len(profit_loss)-1)]
         
 
-#Create variables for results
+#Create variables for printing results
 #Calculate total months
 total_months = len(months)
 #Calculate total profit change
 total_profit_change = sum(profit_loss)
 #Calculate average of the changes in profit/loss (diff)
 average_change = round(average(diff), 2)
-#Get max change number and month it occured
+#Get max change number (diff) and month it occured
 max_change = max(diff)
 max_month = months[diff.index(max_change) + 1]
-#Get min change number and month it occured
+#Get min change number (diff) and month it occured
 min_change = min(diff)
 min_mounth = months[diff.index(min_change) + 1]
 
