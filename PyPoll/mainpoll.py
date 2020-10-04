@@ -29,10 +29,10 @@ with open(csvpath, mode = 'r') as csvfile:
         
         #Add 1 to votes
         total_votes += 1
-        #Define candidate as being in row 2
+        #Define candidate values as being in row 2
         candidate = (row[2])
 
-        #Add candidate name as key and the vote they recieved as value to empty dict
+        #Loop through csv file and add candidate name as key and the votes they recieved as value to empty dictionary
         if candidate in candidate_dic:
             candidate_dic[candidate]+=1
         else:
@@ -50,7 +50,7 @@ with open(filepath, mode='w') as txtfile:
     txtfile.write(total_votes)
     print("-------------")
     txtfile.write("---------------\n")
-    #Add new for loop to go through candidate dic and return the candidate name, the number of votes they recieved, and the % of votes 
+    #Add new for loop to go through candidate dic and return the candidate name, the number of votes they recieved, and the % of votes in one line
     for candidate in candidate_dic:
         value = candidate_dic[candidate]
         percent = vote_percentage(candidate_dic, candidate)
