@@ -21,17 +21,17 @@ The task was to create a Python script for analyzing the financial records of a 
   
   * Have the final script print the analysis to the terminal and export a text file with the results.
   
-  **Results**
+**Results**
   
-  ![Screen Shot 2020-12-30 at 3 24 57 PM](https://user-images.githubusercontent.com/69160361/103384556-0c8bf680-4ab4-11eb-9925-0721b5769b5f.png)
+![Screen Shot 2020-12-30 at 3 24 57 PM](https://user-images.githubusercontent.com/69160361/103384556-0c8bf680-4ab4-11eb-9925-0721b5769b5f.png)
   
-  ### **PyPoll**
+### **PyPoll**
   
-  The task was to help a small, rural town modernize its vote counting process. The data used for this task can be found in PyPoll -> Resources -> 'election_data.csv'
+The task was to help a small, rural town modernize its vote counting process. The data used for this task can be found in PyPoll -> Resources -> 'election_data.csv'
   
-  **Instructions**
-  * Create a Python script that analyzes the votes and calculate each of the following:
-  
+**Instructions**
+* Create a Python script that analyzes the votes and calculate each of the following:
+    
     * The total number of votes cast
 
     * A complete list of candidates who received votes
