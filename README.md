@@ -32,17 +32,17 @@ The task was to create a Python script for analyzing the financial records of a 
   **Instructions**
   * Create a Python script that analyzes the votes and calculate each of the following:
   
-  * The total number of votes cast
+    * The total number of votes cast
 
-  * A complete list of candidates who received votes
+    * A complete list of candidates who received votes
 
-  * The percentage of votes each candidate won
+    * The percentage of votes each candidate won
 
-  * The total number of votes each candidate won
+    * The total number of votes each candidate won
 
-  * The winner of the election based on popular vote.
+    * The winner of the election based on popular vote.
 
-* Have the final script print the analysis to the terminal and export a text file with the results.
+    * Have the final script print the analysis to the terminal and export a text file with the results.
 
 **Results**
 
